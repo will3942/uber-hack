@@ -3,23 +3,103 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Uber Cab Viewer</title>
+	<title>Uber Cab Viewer</title>
     <link href="default.css" rel="stylesheet">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script src="ajax.js" ></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
-      $(function(){
-        $('.lon').click(loadlondon);
-      });
-      function loadlondon() {
-        $('#loading').load('/london', function() {
-          alert('Map Loaded');
-        });
-      }
+      	
+      	var map;
+      	
+      	var coords = {
+		    "London": {
+		        ["london", "51.5118602", "-0.1267962"]
+		    },
+		    "Atlanta": {
+		
+		        ["atlairport", "33.6367", "-84.44403"], ["atlnorcross", "33.94121", "-84.21353"], ["atlriverdale", "33.572611", "-84.413259"], ["atlmableton", "33.8187167", "-84.5824329"], ["atlalpharetta", "34.0753762", "-84.2940899"]
+		    },
+		    "New York": {
+		        ["nymanhattan", "40.7498502", "-73.9955249"], ["nybrooklyn", "40.65", "-73.94999"], ["nyridgewood", "40.9792645", "-74.1165313"], ["nynewark", "40.735657", "-74.172366"], ["nyqueens", "40.7282239", "-73.7948516"], ["nybronx", "40.85", "-73.866667"]
+		
+		    },
+		    "Los Angeles": {
+		        ["laedendale", "34.0793445", "-118.2613771"], ["laeast", "34.0239015", "-118.172015"], ["la", "34.0522342", "-118.2436849"], ["lalongbeach", "33.80416", "-118.1580556"], ["lasanpedro", "33.7360619", "-118.2922461"], ["latorrance", "33.8358492", "-118.3406287"], ["lacompton", "33.8958492", "-118.2200712"], ["lawhittier", "33.9791793", "-118.032844"], ["lasantamonica", "34.0194543", "-118.4911912"], ["laelmonte", "34.0686206", "-118.02756"], ["lahollywood", "34.0928", "-118.3286613"], ["lavannuys", "34.18985", "-118.451357"]
+		
+		    },
+		    "San Francisco": {
+		        ["sfsanjose", "37.3393857", "-121.894955"], ["sfsunnyvale", "37.36883", "-122.0363496"], ["sfcupertino", "37.3229978", "-122.0321822"], ["sfpaloalto", "37.4418834", "-122.1430194"], ["sfsanmateo", "37.5629917", "-122.3255254"], ["sf", "37.7749295", "-122.4194155"], ["sfberkeley", "37.8715926", "-122.2727469"], ["sfoakland", "37.8043637", "-122.2711137"], ["sfhayward", "37.6688205", "-122.0807964"]
+		    },
+		    "Shanghai": {
+		        ["sh", "31.230393", "121.473704"], ["shpudong", "31.2219589", "121.5447209"]
+		    }
+		
+		};
+      	
+		window.onload = function(){
+			var lat = 51.5118603;
+			var lng = -0.1267962;
+			var mapOptions = {
+				zoom: 4,
+				center: new google.maps.LatLng(lat,lng),
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			}
+			map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+			geolocate(function(lat,lng){
+				getCabs(lat,lng,addCabs);
+			},function(){
+				getCabs(lat,lng,addCabs);
+			});
+			
+		}
+		
+		function getCabs(lat,lng,callback){
+			microAjax("/cabs/"+lat+"/"+lng, function (res) {
+				try {
+					var data = JSON.parse(res);
+					callback(data);
+				} catch(e){
+					console.log("json parse failed :(");
+					console.log(e);
+					//TODO: show user that it failed
+				}
+			});
+		}
+		
+		function addCabs(cabTypes){
+			for (var i in cabTypes){
+				var cabs = cabTypes[i];
+				for (var j in cabs){
+					var cab = cabs[j];
+					addCabMarker(cab.latitude,cab.longitude);
+				}
+			}
+		}
+		
+		function addCabMarker(lat,lng){
+			new google.maps.Marker({
+				position: new google.maps.LatLng(lat,lng),
+				map: map,
+				title: ''
+			});
+		}
+		
+		
+		function geolocate(callback,fallback){
+			if (navigator.geolocation){
+				navigator.geolocation.getCurrentPosition(function(position){
+					callback(position.coords.latitude,position.coords.longitude);
+				});
+			}
+			else{
+				console.log("failed to get current position");
+				fallback();
+			}
+		}
     </script>
   </head>
   <body>
-    <div id="loading"></div>
+    <div id="map-canvas"></div>
     <div id="underneath">
       <p>Load: <a href="#" class="sf">San Francisco</a> | <a href="#" class="la">Los Angeles</a> | <a href="#" class="ny">New York</a> | <a href="#" class="sh">Shanghai</a> | <a href="#" class="atl">Atlanta</a> | <a href="#" class="lon">London (UK)</a> | <a href="#" class="all">All (Load time ~30s)</a>
       <p>Created by Will Evans (<a href="http://twitter.com/will3942">@Will3942</a>).</p>
