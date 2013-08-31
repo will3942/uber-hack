@@ -1,0 +1,249 @@
+>> Writing PID to tmp/pids/thin.4569.pid
+No adapter found for /home/will/uber_mapper
+>> Exiting!
+>> Writing PID to tmp/pids/thin.4569.pid
+>> Using rack adapter
+>> Thin web server (v1.5.1 codename Straight Razor)
+>> Maximum connections set to 1024
+>> Listening on 0.0.0.0:4569, CTRL+C to stop
+>> Exiting!
+>> Writing PID to tmp/pids/thin.4569.pid
+>> Using rack adapter
+>> Exiting!
+/usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require': cannot load such file -- sinatra (LoadError)
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /home/will/uber_mapper/app.rb:1:in `<top (required)>'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /home/will/uber_mapper/config.ru:1:in `block in <main>'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from /home/will/uber_mapper/config.ru:1:in `new'
+	from /home/will/uber_mapper/config.ru:1:in `<main>'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `eval'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `load'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/rack/adapter/loader.rb:42:in `for'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/thin/controllers/controller.rb:169:in `load_adapter'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/thin/controllers/controller.rb:73:in `start'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/thin/runner.rb:187:in `run_command'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/thin/runner.rb:152:in `run!'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/bin/thin:6:in `<top (required)>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `load'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `<main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `<main>'
+>> Writing PID to tmp/pids/thin.4569.pid
+>> Using rack adapter
+>> Exiting!
+/usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require': cannot load such file -- sinatra (LoadError)
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /home/will/uber_mapper/app.rb:1:in `<top (required)>'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /home/will/uber_mapper/config.ru:1:in `block in <main>'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from /home/will/uber_mapper/config.ru:1:in `new'
+	from /home/will/uber_mapper/config.ru:1:in `<main>'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `eval'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `load'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/rack/adapter/loader.rb:42:in `for'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/thin/controllers/controller.rb:169:in `load_adapter'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/thin/controllers/controller.rb:73:in `start'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/thin/runner.rb:187:in `run_command'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/thin/runner.rb:152:in `run!'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/bin/thin:6:in `<top (required)>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `load'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `<main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `<main>'
+>> Writing PID to tmp/pids/thin.4569.pid
+>> Using rack adapter
+>> Exiting!
+/usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require': cannot load such file -- sinatra (LoadError)
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /home/will/uber_mapper/app.rb:1:in `<top (required)>'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /home/will/uber_mapper/config.ru:1:in `block in <main>'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from /home/will/uber_mapper/config.ru:1:in `new'
+	from /home/will/uber_mapper/config.ru:1:in `<main>'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `eval'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `load'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/rack/adapter/loader.rb:42:in `for'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/thin/controllers/controller.rb:169:in `load_adapter'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/thin/controllers/controller.rb:73:in `start'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/thin/runner.rb:187:in `run_command'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/lib/thin/runner.rb:152:in `run!'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/thin-1.5.1/bin/thin:6:in `<top (required)>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `load'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `<main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `<main>'
+>> Writing PID to tmp/pids/thin.4569.pid
+>> Using rack adapter
+>> Exiting!
+/usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require': cannot load such file -- sinatra (LoadError)
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /home/will/uber_mapper/app.rb:1:in `<top (required)>'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /home/will/uber_mapper/config.ru:1:in `block in <main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from /home/will/uber_mapper/config.ru:1:in `new'
+	from /home/will/uber_mapper/config.ru:1:in `<main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `load'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/rack/adapter/loader.rb:42:in `for'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/controllers/controller.rb:169:in `load_adapter'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/controllers/controller.rb:73:in `start'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/runner.rb:187:in `run_command'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/runner.rb:152:in `run!'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/bin/thin:6:in `<top (required)>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `load'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `<main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `<main>'
+>> Writing PID to tmp/pids/thin.4569.pid
+>> Using rack adapter
+>> Exiting!
+/usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require': cannot load such file -- sinatra (LoadError)
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /home/will/uber_mapper/app.rb:1:in `<top (required)>'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /home/will/uber_mapper/config.ru:1:in `block in <main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from /home/will/uber_mapper/config.ru:1:in `new'
+	from /home/will/uber_mapper/config.ru:1:in `<main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `load'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/rack/adapter/loader.rb:42:in `for'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/controllers/controller.rb:169:in `load_adapter'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/controllers/controller.rb:73:in `start'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/runner.rb:187:in `run_command'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/runner.rb:152:in `run!'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/bin/thin:6:in `<top (required)>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `load'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `<main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `<main>'
+>> Writing PID to tmp/pids/thin.4569.pid
+>> Using rack adapter
+>> Exiting!
+/usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require': cannot load such file -- sinatra (LoadError)
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /home/will/uber_mapper/app.rb:1:in `<top (required)>'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /home/will/uber_mapper/config.ru:1:in `block in <main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from /home/will/uber_mapper/config.ru:1:in `new'
+	from /home/will/uber_mapper/config.ru:1:in `<main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `load'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/rack/adapter/loader.rb:42:in `for'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/controllers/controller.rb:169:in `load_adapter'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/controllers/controller.rb:73:in `start'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/runner.rb:187:in `run_command'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/runner.rb:152:in `run!'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/bin/thin:6:in `<top (required)>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `load'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `<main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `<main>'
+>> Writing PID to tmp/pids/thin.4569.pid
+>> Using rack adapter
+>> Exiting!
+/usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require': cannot load such file -- sinatra (LoadError)
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /home/will/uber_mapper/app.rb:1:in `<top (required)>'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /home/will/uber_mapper/config.ru:1:in `block in <main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from /home/will/uber_mapper/config.ru:1:in `new'
+	from /home/will/uber_mapper/config.ru:1:in `<main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `load'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/rack/adapter/loader.rb:42:in `for'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/controllers/controller.rb:169:in `load_adapter'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/controllers/controller.rb:73:in `start'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/runner.rb:187:in `run_command'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/runner.rb:152:in `run!'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/bin/thin:6:in `<top (required)>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `load'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `<main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `<main>'
+>> Writing PID to tmp/pids/thin.4569.pid
+>> Using rack adapter
+>> Exiting!
+/usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require': cannot load such file -- sinatra (LoadError)
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /home/will/uber_mapper/app.rb:1:in `<top (required)>'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /usr/local/rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/core_ext/kernel_require.rb:51:in `require'
+	from /home/will/uber_mapper/config.ru:1:in `block in <main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from /home/will/uber_mapper/config.ru:1:in `new'
+	from /home/will/uber_mapper/config.ru:1:in `<main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/rack/adapter/loader.rb:33:in `load'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/rack/adapter/loader.rb:42:in `for'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/controllers/controller.rb:169:in `load_adapter'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/controllers/controller.rb:73:in `start'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/runner.rb:187:in `run_command'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/lib/thin/runner.rb:152:in `run!'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/gems/thin-1.5.1/bin/thin:6:in `<top (required)>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `load'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/thin:23:in `<main>'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `eval'
+	from /usr/local/rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `<main>'
+>> Writing PID to tmp/pids/thin.4569.pid
+>> Using rack adapter
+>> Thin web server (v1.5.1 codename Straight Razor)
+>> Maximum connections set to 10000
+>> Listening on 0.0.0.0:4569, CTRL+C to stop
+127.0.0.1 - - [30/Aug/2013 20:39:08] "GET / HTTP/1.0" 404 18 0.0023
+127.0.0.1 - - [30/Aug/2013 20:39:36] "GET / HTTP/1.0" 404 18 0.0007
+127.0.0.1 - - [30/Aug/2013 20:39:47] "GET / HTTP/1.0" 404 18 0.0006
+127.0.0.1 - - [30/Aug/2013 20:40:30] "GET /map HTTP/1.0" 200 190040 41.7946
+127.0.0.1 - - [31/Aug/2013 10:34:48] "GET / HTTP/1.0" 404 18 0.0007
+>> Exiting!
+>> Writing PID to tmp/pids/thin.4569.pid
+>> Using rack adapter
+>> Thin web server (v1.5.1 codename Straight Razor)
+>> Maximum connections set to 10000
+>> Listening on 0.0.0.0:4569, CTRL+C to stop
+127.0.0.1 - - [31/Aug/2013 11:04:22] "GET /map HTTP/1.0" 200 1017 0.0024
+>> Exiting!
+>> Writing PID to tmp/pids/thin.4569.pid
+>> Using rack adapter
+>> Thin web server (v1.5.1 codename Straight Razor)
+>> Maximum connections set to 10000
+>> Listening on 0.0.0.0:4569, CTRL+C to stop
+127.0.0.1 - - [31/Aug/2013 11:05:12] "GET /map HTTP/1.0" 200 1026 0.0045
+127.0.0.1 - - [31/Aug/2013 12:21:45] "GET /map HTTP/1.0" 200 1026 0.0011
+127.0.0.1 - - [31/Aug/2013 12:31:32] "GET /map HTTP/1.0" 200 1026 0.0011
+>> Exiting!
+>> Writing PID to tmp/pids/thin.4569.pid
+>> Using rack adapter
+>> Thin web server (v1.5.1 codename Straight Razor)
+>> Maximum connections set to 10000
+>> Listening on 0.0.0.0:4569, CTRL+C to stop
+127.0.0.1 - - [31/Aug/2013 12:34:21] "GET /map HTTP/1.0" 200 1115 0.0046
+127.0.0.1 - - [31/Aug/2013 12:36:46] "GET /london HTTP/1.0" 200 2005 0.9776
+>> Exiting!
+>> Writing PID to tmp/pids/thin.4569.pid
+>> Using rack adapter
+>> Thin web server (v1.5.1 codename Straight Razor)
+>> Maximum connections set to 10000
+>> Listening on 0.0.0.0:4569, CTRL+C to stop

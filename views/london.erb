@@ -1,0 +1,39 @@
+<script>
+  function initialize() {
+    var mapOptions = {
+      zoom: 4,
+      center: new google.maps.LatLng(51.5284,0.1331),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    var markersArray = [];
+    function clearOverlays() {
+      for (var i = 0; i < markersArray.length; i++ ) {
+        markersArray[i].setMap(null);
+      }
+      markersArray = [];
+    }
+    <% @london["nearbyVehicles"].each do |vehicletype| %>
+      <% unless vehicletype[1]["vehiclePaths"].nil? %>
+        <% vehicletype[1]["vehiclePaths"].each do |vehicle| %>
+          <% unless vehicle[1].nil? %>
+            <% unless vehicle[1][0].nil? %>
+              <% vehiclesub = vehicle[1][0] %>
+              <% unless vehiclesub["latitude"].nil? %>
+                var marker = new google.maps.Marker({
+                  position: new google.maps.LatLng(<%= vehiclesub["latitude"] %>,<%= vehiclesub["longitude"] %>),
+                  map: map,
+                  title: 'Hello World!'
+                });
+                markersArray.push(marker);
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  }
+
+  initialize();
+</script>
+<div id="map-canvas"></div>

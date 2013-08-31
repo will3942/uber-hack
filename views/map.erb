@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Uber Cab Viewer</title>
+    <link href="default.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+      $(function(){
+        $('.lon').click(loadlondon);
+      });
+      function loadlondon() {
+        $('#loading').load('/london', function() {
+          alert('Map Loaded');
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="loading"></div>
+    <div id="underneath">
+      <p>Load: <a href="#" class="sf">San Francisco</a> | <a href="#" class="la">Los Angeles</a> | <a href="#" class="ny">New York</a> | <a href="#" class="sh">Shanghai</a> | <a href="#" class="atl">Atlanta</a> | <a href="#" class="lon">London (UK)</a> | <a href="#" class="all">All (Load time ~30s)</a>
+      <p>Created by Will Evans (<a href="http://twitter.com/will3942">@Will3942</a>).</p>
+    </div>
+  </body>
+</html>
