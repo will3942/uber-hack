@@ -6,7 +6,7 @@ html, body {
 }
 
 #map-canvas, #map_canvas, #loading {
-  height: 80%;
+  height: 70%;
 }
 #header {
   text-align: center;
@@ -41,4 +41,16 @@ body {
 #underneath{
 	margin: 20px;
 	margin-bottom: 0px;
+}
+#header h1 {
+  margin-bottom:0;
+  padding-bottom:0;
+}
+.subheader {
+  margin-top:0;
+  padding-top:0;
+}
+.subheader a{
+  margin-top:0;
+  padding-top:0;
 }

@@ -9,7 +9,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
       	
-      	var map,bounds,LatLngList,loadedCitiesArray,markersArray,panningEnabled,tempArray,refreshing;
+      	var map,bounds,LatLngList,loadingCity,markersArray,panningEnabled,tempArray,refreshing, loadingIndicator;
       	
       	var coords = {
 		    "London (UK)": [
@@ -37,7 +37,6 @@
 		};
       	
 		window.onload = function(){
-			loadedCitiesArray = [];
 			markersArray = [];
 			panningEnabled = true;
 			refreshing = false;
@@ -50,15 +49,22 @@
 			}
 			map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 			bounds = new google.maps.LatLngBounds();
-			loadedCitiesArray.push("London (UK)");
+			loadingCity = "London (UK)"
+			loadingIndicator = document.getElementById('loadingcity');
+			loadingIndicator.innerHTML = loadingCity;
+			var refreshIndicator = document.getElementById('refreshing');
+			refreshIndicator.innerHTML = 'false';
 			getCabs(lat,lng,addCabs);
 			
 			var cityLinks = document.querySelectorAll(".city");
 			for (var i = 0; i<cityLinks.length; i++){
-				cityLinks[i].onclick = function(){
-					if (loadedCitiesArray.indexOf(this.innerHTML) <= -1) {
-						loadedCitiesArray.push(this.innerHTML);
-					}
+				cityLinks[i].onclick = function(event){
+					event.preventDefault();
+					var panninglatlng = new google.maps.LatLng(coords[this.innerHTML][0][1],coords[this.innerHTML][0][2]);
+					bounds.extend(panninglatlng);
+					map.fitBounds(bounds);
+					loadingCity = this.innerHTML;
+					loadingIndicator.innerHTML = this.innerHTML;
 					var thecoords = coords[this.innerHTML];
 					for(var i in thecoords){
 						var lat = thecoords[i][1];
@@ -116,10 +122,10 @@
 		function refresh() {
 			panningEnabled = false;
 			refreshing = true;
+			var refreshIndicator = document.getElementById('refreshing');
+			refreshIndicator.innerHTML = 'true';
 			tempArray = markersArray.slice(0);
-			for (var j in loadedCitiesArray) {
-				getCityCabs(loadedCitiesArray[j]);
-			}
+			getCityCabs(loadingCity);
 		}
 		
 		function addCabMarker(lat,lng){
@@ -145,10 +151,13 @@
     </script>
   </head>
   <body>
-  	<div id="header"><h1>Live Uber Cab Tracker</h1></div>
+  	<a href="https://github.com/will3942/uber-hack"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+  	<div id="header"><h1>Live Uber Cab Tracker</h1><br /><p class="subheader"><a href="#" id="refresh">Auto-Refresh current loaded city</a></p></div>
     <div id="map-canvas"></div>
     <div id="underneath">
-      <p>Load: <a href="#" class="city">San Francisco</a> | <a href="#" class="city">Los Angeles</a> | <a href="#" class="city">New York</a> | <a href="#" class="city">Shanghai</a> | <a href="#" class="city">Atlanta</a> | <a href="#" class="city">London (UK)</a> | <a href="#" id="refresh">Auto-Refresh all loaded Cities </a></p>
+    	<p>Loading: <span id="loadingcity"></span> & Refreshing: <span id="refreshing"></span></p>
+		<p>Load: <a href="#" class="city">San Francisco</a> | <a href="#" class="city">Los Angeles</a> | <a href="#" class="city">New York</a> | <a href="#" class="city">Shanghai</a> | <a href="#" class="city">Atlanta</a> | <a href="#" class="city">London (UK)</a></p>
+		<p>By proxying the traffic of the Uber app we were able to uncover the private endpoints of the Uber API. This allowed us to access JSON containing the nearby vehicles using latitude and longitude coordinates. The only 'authentication' Uber requires to access this is a token, which you can get yourself by proxying the traffic from your Uber app, a device id which can be found in the same way, a UNIX timestamp in milliseconds and a timestamp in the format YYYY-MM-DD H-M-S. You pass this data to their server's IP address and it will return some JSON about: your profile, your recent journeys and nearby cabs.</p>
     </div>
   </body>
 </html>
