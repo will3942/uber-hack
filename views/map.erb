@@ -69,6 +69,7 @@
 			}
 			var refreshLink = document.getElementById("refresh");
 			refreshLink.onclick=function(){
+				refresh();
 				var refreshInterval = setInterval(function(){refresh()}, 2000);
 			}
 		}
@@ -115,8 +116,7 @@
 		function refresh() {
 			panningEnabled = false;
 			refreshing = true;
-			tempArray = markersArray;
-			markersArray = [];
+			tempArray = markersArray.slice(0);
 			for (var j in loadedCitiesArray) {
 				getCityCabs(loadedCitiesArray[j]);
 			}
@@ -138,6 +138,7 @@
 				for (var i = 0; i < tempArray.length; i++ ) {
 					tempArray[i].setMap(null);
 				}
+				tempArray = [];
 				refreshing = false;
 			}
 		}
