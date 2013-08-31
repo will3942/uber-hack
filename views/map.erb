@@ -50,11 +50,7 @@
 			}
 			map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 			bounds = new google.maps.LatLngBounds();
-			geolocate(function(lat,lng){
-				getCabs(lat,lng,addCabs);
-			},function(){
-				getCabs(lat,lng,addCabs);
-			});
+			getCabs(lat,lng,addCabs);
 			
 			var cityLinks = document.querySelectorAll(".city");
 			for (var i = 0; i<cityLinks.length; i++){
@@ -142,19 +138,6 @@
 					tempArray[i].setMap(null);
 				}
 				refreshing = false;
-			}
-		}
-		
-		
-		function geolocate(callback,fallback){
-			if (navigator.geolocation){
-				navigator.geolocation.getCurrentPosition(function(position){
-					callback(position.coords.latitude,position.coords.longitude);
-				});
-			}
-			else{
-				console.log("failed to get current position");
-				fallback();
 			}
 		}
     </script>
