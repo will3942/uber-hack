@@ -26,16 +26,16 @@ get '/cabs/:latitude/:longitude' do
                             :token => ENV['ubertoken']
                                      }.to_json)
     results = result["nearbyVehicles"]
-    if results["31"]["sorryMsg"].nil? or results["285"]["sorryMsg"].nil?
+    if results.to_s.include?("sorryMsg")
+        cablist = { :error_msg => "No cabs found in your area right now." }
+        status 404
+    else
         cablist = results.map do |ctype|
             ctype[1]["vehiclePaths"].map do |c|
                 cab = c[1][0]
                 { :latitude => cab["latitude"], :longitude => cab["longitude"] }
             end
         end
-    else
-        cablist = { :error_msg => "No cabs found" }
-        status 404
     end
     @latslongs = cablist.to_json
 end
