@@ -9,7 +9,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
       	
-      	var map,bounds,LatLngList;
+      	var map,bounds,LatLngList,loadedCitiesArray,markersArray,panningEnabled,tempArray,refreshing;
       	
       	var coords = {
 		    "London (UK)": [
@@ -37,6 +37,10 @@
 		};
       	
 		window.onload = function(){
+			loadedCitiesArray = [];
+			markersArray = [];
+			panningEnabled = true;
+			refreshing = false;
 			var lat = 51.5118603;
 			var lng = -0.1267962;
 			var mapOptions = {
@@ -55,6 +59,9 @@
 			var cityLinks = document.querySelectorAll(".city");
 			for (var i = 0; i<cityLinks.length; i++){
 				cityLinks[i].onclick = function(){
+					if (loadedCitiesArray.indexOf(this.innerHTML) <= -1) {
+						loadedCitiesArray.push(this.innerHTML);
+					}
 					var thecoords = coords[this.innerHTML];
 					for(var i in thecoords){
 						var lat = thecoords[i][1];
@@ -66,6 +73,9 @@
 			var allLink = document.getElementById("all");
 			allLink.onclick=function(){
 				for (var i in coords){
+					if (loadedCitiesArray.indexOf(i) <= -1) {
+						loadedCitiesArray.push(i);
+					}
 					for (var j in coords[i]){
 						var lat = coords[i][j][1];
 						var lng = coords[i][j][2];
@@ -73,11 +83,14 @@
 					}
 				}
 			}
+			var refreshLink = document.getElementById("refresh");
+			refreshLink.onclick=function(){
+				var refreshInterval = setInterval(function(){refresh()}, 2000);
+			}
 		}
 		
 		function getCabs(lat,lng,callback){
 			get("/cabs/"+lat+"/"+lng, function (res) {
-				console.log(res);
 				try {
 					var data = JSON.parse(res);
 					callback(data);
@@ -97,7 +110,6 @@
 		}
 		
 		function addCabs(cabTypes){
-			console.log(cabTypes);
 			for (var i in cabTypes){
 				var cabs = cabTypes[i];
 				for (var j in cabs){
@@ -106,16 +118,44 @@
 				}
 			}
 		}
+
+		function getCityCabs(cityName) {
+			var thecoords = coords[cityName];
+			for(var i in thecoords){
+				var lat = thecoords[i][1];
+				var lng = thecoords[i][2];
+				getCabs(lat,lng,addCabs);
+			}
+		}
+		
+		function refresh() {
+			panningEnabled = false;
+			refreshing = true;
+			tempArray = markersArray;
+			markersArray = [];
+			for (var j in loadedCitiesArray) {
+				getCityCabs(loadedCitiesArray[j]);
+			}
+		}
 		
 		function addCabMarker(lat,lng){
 			var latlng = new google.maps.LatLng(lat,lng);
-			new google.maps.Marker({
+			var marker = new google.maps.Marker({
 				position: latlng,
 				map: map,
 				title: ''
 			});
-			bounds.extend(latlng);
-			map.fitBounds(bounds);
+			markersArray.push(marker);
+			if (panningEnabled) {
+				bounds.extend(latlng);
+				map.fitBounds(bounds);
+			}
+			if (refreshing) {
+				for (var i = 0; i < tempArray.length; i++ ) {
+					tempArray[i].setMap(null);
+				}
+				refreshing = false;
+			}
 		}
 		
 		
@@ -135,7 +175,7 @@
   <body>
     <div id="map-canvas"></div>
     <div id="underneath">
-      <p>Load: <a href="#" class="city">San Francisco</a> | <a href="#" class="city">Los Angeles</a> | <a href="#" class="city">New York</a> | <a href="#" class="city">Shanghai</a> | <a href="#" class="city">Atlanta</a> | <a href="#" class="city">London (UK)</a> | <a href="#" id="all">All (Load time ~30s)</a>
+      <p>Load: <a href="#" class="city">San Francisco</a> | <a href="#" class="city">Los Angeles</a> | <a href="#" class="city">New York</a> | <a href="#" class="city">Shanghai</a> | <a href="#" class="city">Atlanta</a> | <a href="#" class="city">London (UK)</a> | <a href="#" id="all">All (Load time ~30s)</a> | <a href="#" id="refresh">Auto-Refresh all loaded Cities </a>
       <p>Created by Will Evans (<a href="http://twitter.com/will3942">@Will3942</a>).</p>
     </div>
   </body>
