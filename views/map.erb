@@ -54,10 +54,10 @@
 			var cityLinks = document.querySelectorAll(".city");
 			for (var i = 0; i<cityLinks.length; i++){
 				cityLinks[i].onclick = function(){
-					var coords = coords[this.innerHTML];
-					for(var i in coords){
-						var lat = coords[i][1];
-						var lng = coords[i][2];
+					var thecoords = coords[this.innerHTML];
+					for(var i in thecoords){
+						var lat = thecoords[i][1];
+						var lng = thecoords[i][2];
 						getCabs(lat,lng,addCabs);
 					}
 				}
@@ -76,6 +76,7 @@
 		
 		function getCabs(lat,lng,callback){
 			get("/cabs/"+lat+"/"+lng, function (res) {
+				console.log(res);
 				try {
 					var data = JSON.parse(res);
 					callback(data);
@@ -95,6 +96,7 @@
 		}
 		
 		function addCabs(cabTypes){
+			console.log(cabTypes);
 			for (var i in cabTypes){
 				var cabs = cabTypes[i];
 				for (var j in cabs){
