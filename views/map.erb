@@ -9,7 +9,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
       	
-      	var map;
+      	var map,bounds,LatLngList;
       	
       	var coords = {
 		    "London (UK)": [
@@ -45,6 +45,7 @@
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			}
 			map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+			bounds = new google.maps.LatLngBounds();
 			geolocate(function(lat,lng){
 				getCabs(lat,lng,addCabs);
 			},function(){
@@ -107,11 +108,14 @@
 		}
 		
 		function addCabMarker(lat,lng){
+			var latlng = new google.maps.LatLng(lat,lng);
 			new google.maps.Marker({
-				position: new google.maps.LatLng(lat,lng),
+				position: latlng,
 				map: map,
 				title: ''
 			});
+			bounds.extend(latlng);
+			map.fitBounds(bounds);
 		}
 		
 		
