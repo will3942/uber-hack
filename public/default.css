@@ -7,6 +7,9 @@ html, body {
 #map-canvas, #map_canvas, #loading {
   height: 80%;
 }
+#header {
+  text-align: center;
+}
 
 @media print {
   html, body {

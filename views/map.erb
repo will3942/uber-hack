@@ -70,19 +70,6 @@
 					}
 				}
 			}
-			var allLink = document.getElementById("all");
-			allLink.onclick=function(){
-				for (var i in coords){
-					if (loadedCitiesArray.indexOf(i) <= -1) {
-						loadedCitiesArray.push(i);
-					}
-					for (var j in coords[i]){
-						var lat = coords[i][j][1];
-						var lng = coords[i][j][2];
-						getCabs(lat,lng,addCabs);
-					}
-				}
-			}
 			var refreshLink = document.getElementById("refresh");
 			refreshLink.onclick=function(){
 				var refreshInterval = setInterval(function(){refresh()}, 2000);
@@ -173,9 +160,10 @@
     </script>
   </head>
   <body>
+  	<div id="header"><h1>Live Uber Cab Tracker</h1></div>
     <div id="map-canvas"></div>
     <div id="underneath">
-      <p>Load: <a href="#" class="city">San Francisco</a> | <a href="#" class="city">Los Angeles</a> | <a href="#" class="city">New York</a> | <a href="#" class="city">Shanghai</a> | <a href="#" class="city">Atlanta</a> | <a href="#" class="city">London (UK)</a> | <a href="#" id="all">All (Load time ~30s)</a> | <a href="#" id="refresh">Auto-Refresh all loaded Cities </a></p>
+      <p>Load: <a href="#" class="city">San Francisco</a> | <a href="#" class="city">Los Angeles</a> | <a href="#" class="city">New York</a> | <a href="#" class="city">Shanghai</a> | <a href="#" class="city">Atlanta</a> | <a href="#" class="city">London (UK)</a> | <a href="#" id="refresh">Auto-Refresh all loaded Cities </a></p>
     </div>
   </body>
 </html>
