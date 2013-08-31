@@ -50,6 +50,7 @@
 			}
 			map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 			bounds = new google.maps.LatLngBounds();
+			loadedCitiesArray.push("London (UK)");
 			getCabs(lat,lng,addCabs);
 			
 			var cityLinks = document.querySelectorAll(".city");
