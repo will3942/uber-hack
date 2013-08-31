@@ -3,7 +3,7 @@ require 'json'
 require 'net/http'
 require 'httparty'
 
-get '/map' do
+get '/' do
     erb :map
 end
 get '/cabs/:latitude/:longitude' do
