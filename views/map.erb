@@ -9,7 +9,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
       	
-      	var map,bounds,LatLngList,markersArray,loadedCitiesArray, panningEnabled;
+      	var map,bounds,LatLngList;
       	
       	var coords = {
 		    "London (UK)": [
@@ -37,7 +37,6 @@
 		};
       	
 		window.onload = function(){
-			panningEnabled = true;
 			var lat = 51.5118603;
 			var lng = -0.1267962;
 			var mapOptions = {
@@ -56,7 +55,6 @@
 			var cityLinks = document.querySelectorAll(".city");
 			for (var i = 0; i<cityLinks.length; i++){
 				cityLinks[i].onclick = function(){
-					loadedCitiesArray.push(this.innerHTML);
 					var thecoords = coords[this.innerHTML];
 					for(var i in thecoords){
 						var lat = thecoords[i][1];
@@ -68,7 +66,6 @@
 			var allLink = document.getElementById("all");
 			allLink.onclick=function(){
 				for (var i in coords){
-					loadedCitiesArray.push(i);
 					for (var j in coords[i]){
 						var lat = coords[i][j][1];
 						var lng = coords[i][j][2];
@@ -76,31 +73,8 @@
 					}
 				}
 			}
-			var refreshLink = document.getElementById("refresh");
-			refreshLink.onclick=function(){
-				setTimeout(refresh, 2000);
-			}
 		}
 		
-		function cabsInCity(cityName) {
-			var thecoords = coords[cityName];
-			for(var i in thecoords){
-				var lat = thecoords[i][1];
-				var lng = thecoords[i][2];
-				getCabs(lat,lng,addCabs);
-			}
-		}
-		
-		function refresh(){
-			panningEnabled = false;
-			for (var i in markersArray){
-				markersArray[i].setMap(null);
-			}
-			for (var i in loadedCitiesArray) {
-				cabsInCity(i);
-			}
-		}
-
 		function getCabs(lat,lng,callback){
 			get("/cabs/"+lat+"/"+lng, function (res) {
 				console.log(res);
@@ -120,8 +94,6 @@
 					console.log("shit happens.");
 				}
 			});
-			
-			
 		}
 		
 		function addCabs(cabTypes){
@@ -137,16 +109,13 @@
 		
 		function addCabMarker(lat,lng){
 			var latlng = new google.maps.LatLng(lat,lng);
-			var marker = new google.maps.Marker({
+			new google.maps.Marker({
 				position: latlng,
 				map: map,
 				title: ''
 			});
-			markersArray.push(marker);
-			if (panningEnabled) {
-				bounds.extend(latlng);
-				map.fitBounds(bounds);
-			}
+			bounds.extend(latlng);
+			map.fitBounds(bounds);
 		}
 		
 		
@@ -166,7 +135,7 @@
   <body>
     <div id="map-canvas"></div>
     <div id="underneath">
-      <p>Load: <a href="#" class="city">San Francisco</a> | <a href="#" class="city">Los Angeles</a> | <a href="#" class="city">New York</a> | <a href="#" class="city">Shanghai</a> | <a href="#" class="city">Atlanta</a> | <a href="#" class="city">London (UK)</a> | <a href="#" id="all">All (Load time ~30s)</a> | <a href="#" id="refresh">Auto Refresh Pins</a>
+      <p>Load: <a href="#" class="city">San Francisco</a> | <a href="#" class="city">Los Angeles</a> | <a href="#" class="city">New York</a> | <a href="#" class="city">Shanghai</a> | <a href="#" class="city">Atlanta</a> | <a href="#" class="city">London (UK)</a> | <a href="#" id="all">All (Load time ~30s)</a>
       <p>Created by Will Evans (<a href="http://twitter.com/will3942">@Will3942</a>).</p>
     </div>
   </body>
