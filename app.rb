@@ -6,9 +6,6 @@ require 'httparty'
 get '/map' do
     erb :map
 end
-get '/city/:name' do
-    erb :city
-end
 get '/cabs/:latitude/:longitude' do
     time = Time.now
     result = HTTParty.post("https://97.64.114.226/", 
