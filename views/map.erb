@@ -12,7 +12,7 @@
       	var map;
       	
       	var coords = {
-		    "London": [
+		    "London (UK)": [
 		        ["london", "51.5118602", "-0.1267962"]
 		    ],
 		    "Atlanta": [
@@ -51,10 +51,31 @@
 				getCabs(lat,lng,addCabs);
 			});
 			
+			var cityLinks = document.querySelectorAll(".city");
+			for (var i = 0; i<cityLinks.length; i++){
+				cityLinks[i].onclick = function(){
+					var coords = coords[this.innerHTML];
+					for(var i in coords){
+						var lat = coords[i][1];
+						var lng = coords[i][2];
+						getCabs(lat,lng,addCabs);
+					}
+				}
+			}
+			var allLink = document.getElementById("all");
+			allLink.onclick=function(){
+				for (var i in coords){
+					for (var j in coords[i]){
+						var lat = coords[i][j][1];
+						var lng = coords[i][j][2];
+						getCabs(lat,lng,addCabs);
+					}
+				}
+			}
 		}
 		
 		function getCabs(lat,lng,callback){
-			microAjax("/cabs/"+lat+"/"+lng, function (res) {
+			get("/cabs/"+lat+"/"+lng, function (res) {
 				try {
 					var data = JSON.parse(res);
 					callback(data);
@@ -62,6 +83,13 @@
 					console.log("json parse failed :(");
 					console.log(e);
 					//TODO: show user that it failed
+				}
+			},function(status,res){
+				try {
+					var data=JSON.parse(res);
+					console.log(data.error_msg);
+				} catch (e){
+					console.log("shit happens.");
 				}
 			});
 		}
@@ -101,7 +129,7 @@
   <body>
     <div id="map-canvas"></div>
     <div id="underneath">
-      <p>Load: <a href="#" class="sf">San Francisco</a> | <a href="#" class="la">Los Angeles</a> | <a href="#" class="ny">New York</a> | <a href="#" class="sh">Shanghai</a> | <a href="#" class="atl">Atlanta</a> | <a href="#" class="lon">London (UK)</a> | <a href="#" class="all">All (Load time ~30s)</a>
+      <p>Load: <a href="#" class="city">San Francisco</a> | <a href="#" class="city">Los Angeles</a> | <a href="#" class="city">New York</a> | <a href="#" class="city">Shanghai</a> | <a href="#" class="city">Atlanta</a> | <a href="#" class="city">London (UK)</a> | <a href="#" id="all">All (Load time ~30s)</a>
       <p>Created by Will Evans (<a href="http://twitter.com/will3942">@Will3942</a>).</p>
     </div>
   </body>
