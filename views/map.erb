@@ -9,7 +9,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
       	
-      	var map,bounds,LatLngList,loadingCity,markersArray,panningEnabled,tempArray,refreshing, loadingIndicator;
+      	var map,bounds,LatLngList,loadingCity,markersArray,panningEnabled,tempArray,refreshing, loadingIndicator,refreshInterval,slowedDown;
       	
       	var coords = {
 		    "London (UK)": [
@@ -40,6 +40,7 @@
 			markersArray = [];
 			panningEnabled = true;
 			refreshing = false;
+			slowedDown = false;
 			var lat = 51.5118603;
 			var lng = -0.1267962;
 			var mapOptions = {
@@ -61,6 +62,15 @@
 				cityLinks[i].onclick = function(event){
 					event.preventDefault();
 					var panninglatlng = new google.maps.LatLng(coords[this.innerHTML][0][1],coords[this.innerHTML][0][2]);
+					if (refreshing) {
+						if (!(slowedDown)) {
+							if (this.innerHTML == "New York"  || this.innerHTML == "Los Angeles" || this.innerHTML == "San Francisco" || this.innerHTML == "Atlanta") {
+								slowedDown = true;
+								clearInterval(refreshInterval);
+								refreshInterval = setInterval(function(){refresh()}, 8000);
+							}
+						}
+					}
 					bounds.extend(panninglatlng);
 					map.fitBounds(bounds);
 					loadingCity = this.innerHTML;
@@ -76,7 +86,7 @@
 			var refreshLink = document.getElementById("refresh");
 			refreshLink.onclick=function(){
 				refresh();
-				var refreshInterval = setInterval(function(){refresh()}, 1200);
+				refreshInterval = setInterval(function(){refresh()}, 1200);
 			}
 		}
 		
